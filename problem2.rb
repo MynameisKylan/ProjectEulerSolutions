@@ -5,3 +5,24 @@
 
 # By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
 
+def fib(n, a = 0, b = 1)
+  if (n == 0)
+    return a
+  elsif (n == 1) 
+    return b
+  else 
+    return fib(n - 1, b, a + b)
+  end
+end
+
+def sum_even_fib(max)
+  n = 0
+  sum = 0
+  fib = fib(n)
+  while fib < max
+    sum += fib if fib.even?
+    n += 1
+    fib = fib(n)
+  end
+  sum
+end
