@@ -3,13 +3,11 @@
 # Find the sum of all the multiples of 3 or 5 below 1000.
 
 def sum_multiples(factors, max)
-  result = 0
-  factors.each do |num|
-    x = num
-    while x < max
-      result += x
-      x += num
-    end
+  multiples = []
+  (1...max).each do |num| 
+    factors.each { |fac| multiples << num if num % fac == 0 && !multiples.include?(num)}
   end
-  result
+  multiples.sum
 end
+
+puts sum_multiples([3,5], 1000)
